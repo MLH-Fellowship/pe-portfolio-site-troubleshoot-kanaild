@@ -1,8 +1,12 @@
 import unittest
+from urllib import response
 import os
+import sys
+sys.path.insert(0,'app/')
+
 os.environ['TESTING'] = 'true'
 
-from app import app
+from __init__ import app
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
@@ -58,8 +62,8 @@ class AppTestCase(unittest.TestCase):
         # POST request missing name
         response = self.client.post("/api/timeline_post", data={"email": "john@example.com", "content": "Hello world, I'm John!"})
         assert response.status_code == 400
-        html = response.get_data(as_text=True)
-        assert "Invalid name" in html
+        response_text = response.get_data(as_text=True)
+        assert "Invalid name" in response_text
 
         # POST request with empty content
         response = self.client.post("/api/timeline_post", data={"name": "John Doe", "email": "john@example.com", "content": ""})
