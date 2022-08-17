@@ -63,7 +63,7 @@ class AppTestCase(unittest.TestCase):
         response = self.client.post("/api/timeline_post", data={"email": "john@example.com", "content": "Hello world, I'm John!"})
         assert response.status_code == 400
         html = response.get_data(as_text=True)
-        assert "Invalid name" in html
+        assert "Invalid name" in response_text
 
         # POST request with empty content
         response = self.client.post("/api/timeline_post", data={"name": "John Doe", "email": "john@example.com", "content": ""})
