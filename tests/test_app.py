@@ -1,8 +1,12 @@
 import unittest
+from urllib import response
 import os
+import sys
+sys.path.insert(0,'app/')
+
 os.environ['TESTING'] = 'true'
 
-from app import app
+from __init__ import app
 
 class AppTestCase(unittest.TestCase):
     def setUp(self):
