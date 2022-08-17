@@ -45,8 +45,8 @@ def timeline():
 def post_time_line_post():
 
     name = request.form.get('name')
-    'email' = request.form['email']
-    'content' = request.form['content']
+    email = request.form['email']
+    content = request.form['content']
 
 
     if name not in request.form or request.form.get('name') == "":
