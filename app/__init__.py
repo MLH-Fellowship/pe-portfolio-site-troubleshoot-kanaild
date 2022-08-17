@@ -44,12 +44,12 @@ def timeline():
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
 
-    name = request.form['name']
+    name = request.form.get('name')
     email = request.form['email']
     content = request.form['content']
 
 
-    if 'name' not in request.form or request.form['name'] == "":
+    if name not in request.form or request.form.get('name') == "":
         return "Invalid name", 400
 
     if 'email' not in request.form or request.form['email'] == "" or '@' not in request.form['email']:
