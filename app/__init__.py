@@ -49,13 +49,13 @@ def post_time_line_post():
     content = request.form['content']
 
 
-    if name not in request.form or request.form.get('name') == "":
+    if 'name' not in request.form or request.form.get('name') == "":
         return "Invalid name", 400
 
-    if email not in request.form or request.form['email'] == "" or '@' not in request.form['email']:
+    if 'email' not in request.form or request.form['email'] == "" or '@' not in request.form['email']:
         return "Invalid email", 400
 
-    if content not in request.form or request.form['content'] == "":
+    if 'content' not in request.form or request.form['content'] == "":
         return "Invalid content", 400
 
 
